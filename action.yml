@@ -1,0 +1,15 @@
+name: 'XML Lint'
+description: 'Lint XML files with xmllint'
+inputs:
+  xml-file:
+    description: 'The source (.xml) file'
+    required: true
+  xml-schema-file:
+    description: 'The schema (.xsd) file'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.xml-file }}
+    - ${{ inputs.xml-schema-file }}
