@@ -12,6 +12,10 @@ This action validates an XML files with a given XML schema using `xmllint`.
 
 **Required** The name of the schema (`.xsd`) file.
 
+### `xml-schema-type`
+
+**Optional** The type of schema to use (schema, relaxng, schematron). Default is schema.
+
 ## Basic Usage Example
 
 This basic example validates specified XML file specified using: `xml-file` using the schema file specified using: `xml-schema-file`.
@@ -35,6 +39,10 @@ jobs:
         xml-file: ./appinfo/info.xml
         xml-schema-file: ./info.xsd
 ```
+
+### Using alternate schema formats
+
+To use an alternate schema format supported by `xmllint` (i.e. relaxng or schematron), you should specify the format of your schema using the optional `xml-schema-type` parameter.
 
 ## Extended Usage Example Enabling Annotations
 

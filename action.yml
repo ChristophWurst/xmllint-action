@@ -5,11 +5,16 @@ inputs:
     description: 'The source (.xml) file'
     required: true
   xml-schema-file:
-    description: 'The schema (.xsd) file'
+    description: 'The schema file (.xsd or other, according to schema type)'
     required: true
+  xml-schema-type:
+    description: 'the type of schema to use (schema, relaxng, schematron; default is schema)'
+    required: false
+    default: "schema"
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.xml-file }}
+    - ${{ inputs.xml-schema-type }}
     - ${{ inputs.xml-schema-file }}
