@@ -12,7 +12,7 @@ This action validates an XML files with a given XML schema using `xmllint`.
 
 **Required** The name of the schema (`.xsd`) file.
 
-### `xml-schema-type
+### `xml-schema-type`
 
 **Optional** The type of schema to use (schema, relaxng, schematron). Default is schema.
 
