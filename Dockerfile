@@ -1,7 +1,4 @@
-FROM ubuntu:16.04
-RUN apt-get update && \
-    apt-get -y --no-install-recommends install libxml2-utils && \
-    apt-get autoremove -y && \
-    apt-get clean
+FROM alpine:latest
+RUN apk add --no-cache libxml2-utils
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
