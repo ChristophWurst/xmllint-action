@@ -30,10 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v4
     - name: Download schema
       run: wget https://apps.nextcloud.com/schema/apps/info.xsd
-    - name: Lint info.xml
+    - name: Validate info.xml using XML schema info.xsd
       uses: ChristophWurst/xmllint-action@v1
       with:
         xml-file: ./appinfo/info.xml
@@ -59,11 +59,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v4
     - name: Download schema
       run: wget https://apps.nextcloud.com/schema/apps/info.xsd
-    - name: Lint info.xml
+    - name: Enable annotations for validation errors and warnings
       uses: korelstar/xmllint-problem-matcher@v1
+    - name: Validate info.xml using XML schema info.xsd
       uses: ChristophWurst/xmllint-action@v1
       with:
         xml-file: ./appinfo/info.xml
